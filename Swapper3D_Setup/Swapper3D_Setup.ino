@@ -53,7 +53,7 @@ const int start_Postion_QuickSwapHotend_Lock = 70;
 const int start_Postion_HolderRotate = 15;
 const int start_Postion_Cutter_Rotate = 27;
 const int start_Postion_Cutter_Action= 175;
-const int start_Postion_WastCup_Action = 110;
+const int start_Postion_WastCup_Action = 170; //110
 
 const int end_Postion_Tool_Rotate = 293;
 const int end_Postion_Tool_Height = 31;
@@ -62,7 +62,7 @@ const int end_Postion_QuickSwapHotend_Lock = 104;
 const int end_Postion_HolderRotate = 360;
 const int end_Postion_Cutter_Rotate = 123;
 const int end_Postion_Cutter_Action= 15;
-const int end_Postion_WastCup_Action = 99;
+const int end_Postion_WastCup_Action = 125; //99
 
 //start = 0, end = 1
 const int servo_EndPositions[numOfServos]{
@@ -151,7 +151,7 @@ void setup()
 	servos[s_Cutter_Action][eeMaxAngle] = 180;//
 	servos[s_Cutter_Action][eeCurrentAngle] = start_Postion_Cutter_Action;//
 	servos[s_WasteCup_Action][eePinNum] = 8;//s_WasteCup_Action
-	servos[s_WasteCup_Action][eeMaxAngle] = 180;//micro
+	servos[s_WasteCup_Action][eeMaxAngle] = 280;//micro
 	servos[s_WasteCup_Action][eeCurrentAngle] = start_Postion_WastCup_Action;//
   
 
@@ -270,15 +270,15 @@ void loop()
     
     //set servos to end positions
     //refresh ONLY the ONE servo that is currently being worked on.
-    pulselength = map(servo_EndPositions[currentServo], 0, servos[currentServo][eeMaxAngle], servo_pwm_min_360, servo_pwm_max_360);
+    pulselength = map(servo_EndPositions[currentServo]+ServoAngleAdjustments[currentServo], 0, servos[currentServo][eeMaxAngle], servo_pwm_min_360, servo_pwm_max_360);
     pwm.setPWM(servos[currentServo][eePinNum], 0, pulselength);  
     
-    delay(1500);
+    delay(3000);
 
     pulselength = map(servos[currentServo][eeCurrentAngle]+ServoAngleAdjustments[currentServo], 0, servos[currentServo][eeMaxAngle], 600, 2900);
     pwm.setPWM(servos[currentServo][eePinNum], 0, pulselength);	   
 
-    delay(1500);
+    delay(500);
   }
 
   if(currentServoRefreshRequired)
