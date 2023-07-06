@@ -82,7 +82,7 @@ int ServoAngleAdjustments[numOfServos];
 int currentServo = 0;
 int msAtLastLcdRefresh = 0;
 bool screenRefreshRequired = true;
-bool servoRefreshRequired = true;
+bool servoRefreshRequired = false;
 bool currentServoRefreshRequired = false;
 int buttonPress;    
 bool buttonPressed;            
