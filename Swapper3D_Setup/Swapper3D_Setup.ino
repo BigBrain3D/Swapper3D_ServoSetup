@@ -57,7 +57,7 @@ const int start_Postion_WastCup_Action = 170; //110
 
 const int end_Postion_Tool_Rotate = 293;
 const int end_Postion_Tool_Height = 31;
-const int end_Postion_Tool_Lock = 105; //115; 
+const int end_Postion_Tool_Lock = 102; //105, 115; 
 const int end_Postion_QuickSwapHotend_Lock = 104;
 const int end_Postion_HolderRotate = 360;
 const int end_Postion_Cutter_Rotate = 123;
