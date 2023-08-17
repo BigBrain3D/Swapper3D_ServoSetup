@@ -61,7 +61,7 @@ const int end_Postion_Tool_Lock = 102; //105, 115;
 const int end_Postion_QuickSwapHotend_Lock = 104;
 const int end_Postion_HolderRotate = 360;
 const int end_Postion_Cutter_Rotate = 123;
-const int end_Postion_Cutter_Action= 15;
+const int end_Postion_Cutter_Action = 33; //15; was biding at 15
 const int end_Postion_WastCup_Action = 164; //125; //99
 
 //start = 0, end = 1
