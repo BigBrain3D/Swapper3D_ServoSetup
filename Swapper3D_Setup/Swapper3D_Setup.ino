@@ -161,8 +161,24 @@ void setup()
 	pwm.setPWMFreq(300);  // Digtal servos run at 300Hz updates
 
   
-   //screenRefreshRequired = true; //this should be commented out because if a User accidentally leaves the setup firmware on the controller and assembles the Swapper3D and then powers on then arms and parts are going to crash and break.
+   servoRefreshRequired = false; //this should be FALSE out because if a User accidentally leaves the setup firmware on the controller and assembles the Swapper3D and then powers on then arms and parts are going to crash and break.
+   screenRefreshRequired = true;
+   currentServoRefreshRequired = false;
    lcd.clear();
+
+
+  //Added May 10th 2024: found that sometimes the servos were not energizing when the system was powered on
+  //and they were not moving to their starting position as saved in the eeprom
+  //this could cause an issue where the user following the instruction of setting the start positions
+  //places the horn on the output shaft in what they think is the first counter-clockwise spline position
+  //but in actuality it would not be that position
+  // this could result in the wrong position being saved
+  //the following code ensures that each servo is energized as soon as the power is on.
+  for (int CurServo = 0; CurServo < 8; CurServo++)
+  {
+    pulselength = map(servos[CurServo][eeCurrentAngle]+ServoAngleAdjustments[CurServo], 0, servos[CurServo][eeMaxAngle], 600, 2900);
+    pwm.setPWM(servos[CurServo][eePinNum], 0, pulselength);	 
+  }
 }
 
 void loop()
