@@ -50,13 +50,13 @@ const String servos_names[numOfServos] = {
 };
 
 // Servo Starting positions
-const int start_Postion_Tool_Rotate = 148; //104;
-const int start_Postion_Tool_Height = 129;
+const int start_Postion_Tool_Rotate = 146; //148; //104;
+const int start_Postion_Tool_Height = 130;//129;
 const int start_Postion_Tool_Lock = 193;
 const int start_Postion_QuickSwapHotend_Lock = 70;
 const int start_Postion_HolderRotate = 15;
 const int start_Postion_Cutter_Rotate = 27;
-const int start_Postion_Cutter_Action = 175;
+const int start_Postion_Cutter_Action = 176; //175;
 const int start_Postion_WastCup_Action = 170; //110
 
 const int end_Postion_Tool_Rotate = 293;
